@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                echo '===== BUILD STARTED ====='
+                sh 'python3 --version'
+                sh 'python3 app.py'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo '===== TEST STARTED ====='
+                sh 'pytest'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo '===== DEPLOY STARTED ====='
+                echo 'Application deployment step'
+            }
+        }
+    }
+}
